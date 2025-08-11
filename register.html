@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Learn.Code.Repeat.</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 55px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .auth-container h2 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .auth-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .auth-container button:hover {
+            background-color: #0056b3;
+        }
+        .auth-container p {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .auth-container a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .coupon-info {
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <input type="text" id="couponCode" placeholder="Coupon Code">
+            <p class="coupon-info">Have a coupon? Enter it here for Register access.</p>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const coupon = document.getElementById("couponCode").value.trim();
+            if (coupon && coupon.toLowerCase() !== "lcr2025") {
+                alert("Invalid coupon code. Please try again.");
+                return;
+            }
+            alert("Registration successful! Your under Reveiw, you will be notified via email.");
+            // Here you could redirect or save data
+        });
+    </script>
+
+</body>
+</html>
